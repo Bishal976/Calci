@@ -19,13 +19,14 @@ html,body {
 .container {
     height: 80vh;
     width: 52vh;
-    padding: 5px;
+    padding: 10px;
     background-color: black;
     border-radius: 15px;
+    border: 3px solid grey;
     display: flex;
     flex-direction:column;
     justify-content: flex-start;
-
+    padding-right: -15px;
 }
 
 .screen {
@@ -34,12 +35,17 @@ html,body {
     /* border: 0.5px solid blue; */
     height: 20vh;
     width: inherit;
+    margin-bottom: 10px;
 }
 
 .buttons {
     height: 57vh;
     width: inherit;
     /* border: 0.5px solid red;     */
+    padding-bottom: 18px;
+    padding-top: 2px;
+    padding-left: 2px;
+    padding-right: 4px;
 }
 
 .row {
@@ -115,9 +121,10 @@ html,body {
     font-size: 24px;
     cursor: pointer;
     outline: none;
-    border: none;
+    border: 3px solid rgb(2, 2, 2);
+    margin-top: 5px;
     border-radius: 15px;
-    box-shadow: 0 9px #999;
+    box-shadow: 0 0 5px rgb(248, 245, 245);
   }
   
   .box:hover {background-color: whitesmoke}
@@ -127,3 +134,4 @@ html,body {
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+

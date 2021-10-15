@@ -9,47 +9,46 @@ function init() {
     document.querySelector(".buttons").addEventListener("click", function(event) {
       buttonClick(event.target.innerText);
     });
-  }
+}
   
 
-  function buttonClick(value) {
+function buttonClick(value) {
     if (isNaN(parseInt(value))) {
         handleSymbol(value);
     } else {
         handleNumber(value);
     }
     rerender();
-  }
+}
 
-  function handleNumber(value){
-      if(operator === null){
-          if(count === 0){
-              first_variable = value;
-              buffer = first_variable;
-              count ++;
-              rerender();
-          } else if(count !== 0 ){
-              first_variable += value;
-              buffer = first_variable;
-              rerender();
-          }
-      }
-      else if(operator !== null){
-          if(count === 0){
-              second_variable = value;
-              buffer = second_variable;
-              count++;
-              rerender();
-          } else if(count !== 0){
-              second_variable += value;
-              buffer = second_variable;
-              rerender();
-          }
-      }
+function handleNumber(value){
+    if(operator === null){
+        if(count === 0){
+            first_variable = value;
+            buffer = first_variable;
+            count ++;
+            rerender();
+        } else if(count !== 0 ){
+            first_variable += value;
+            buffer = first_variable;
+            rerender();
+        }
+    }
+    else if(operator !== null){
+        if(count === 0){
+            second_variable = value;
+            buffer = second_variable;
+            count++;
+            rerender();
+        } else if(count !== 0){
+            second_variable += value;
+            buffer = second_variable;
+            rerender();
+        }
+    }
+}
 
-  }
-
-  function handleSymbol(value){
+function handleSymbol(value){
     switch(value){
         case "←":
             let c = screen.innerText;
@@ -107,11 +106,117 @@ function init() {
             // count = 0;
             break;
     }
-  }
+}
 
-  function rerender(){
-      screen.innerText = buffer;
-  }
+// Insert value from keyboard
+function keyCode(event, valore){
+    let op = event.keyCode;
+    let btn = "";
 
- init();
+    switch(op){
+        // Numbers
+        // 0
+        case 96:
+        case 48:
+            btn = 0;
+            break;
+
+        // 1
+        case 97:
+        case 49:
+                btn = 1;
+                break;
+
+        // 2
+        case 98:
+        case 50:
+                btn = 2;
+                break;
+
+        // 3
+        case 99:
+        case 51:
+                btn = 3;
+                break;
+
+        // 4
+        case 100:
+        case 52:
+                btn = 4;
+                break;
+
+        // 5
+        case 101:
+        case 53:
+                btn = 5;
+                break;
+        // 6
+        case 102:
+        case 54:
+                btn = 6;
+                break;
+
+        // 7
+        case 103:
+        case 55:
+                btn = 7;
+                break;
+
+        // 8
+        case 104:
+        case 56:
+                btn = 8;
+                break;
+
+        // 9
+        case 105:
+        case 57:
+                btn = 9;
+                break;
+
+        // Operators
+        // +
+        case 107:
+            btn = "+";
+            break;
+        
+        // -
+        case 109:
+            btn = "-";
+            break;
+        
+        // *
+        case 106:
+            btn = "×";
+            break;
+
+        // /
+        case 111:
+            btn = "÷";
+            break;
+
+        // Enter (=)
+        case 13:
+            btn = "=";
+            break;
+
+        // CANC
+        case 46:
+            btn = "C";
+            break;
+
+        // ←
+        case 8:
+            btn = "←";
+            break;
+    }
+
+    buttonClick(btn);
+}
+
+function rerender(){
+    screen.innerText = buffer;
+}
+
+init();
 

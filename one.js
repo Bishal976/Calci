@@ -211,7 +211,7 @@ function keyCode(event, valore){
             break;
     }
 
-    buttonClick(btn);
+    buttonClick(btn.toString());
 }
 
 function rerender(){
